@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <form class="" action="" method="">
+  <form action="" method="post">
     <label>Login</label>
     <input type="Text" placeholder="Enter your login">
     <label>Password</label>
