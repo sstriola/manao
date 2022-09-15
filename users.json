@@ -4,5 +4,12 @@
         "email": "sentriola@gmail.com",
         "login": "sentriola",
         "password": "$2y$10$SJKm3DdFi7.MX0ulJRgGPeGoQzZuf1LwOqFgRD6qxRBiEUQDjlA2S"
+    },
+    {
+        "username": "en",
+        "email": "em@email.com",
+        "login": "hg",
+        "password": "$2y$10$GwLo5qiRT9jXKJHamhkTI.dUCBc7qVGl1wl.Q.eQkUmj5KkQVvsRO",
+        "confirm_password": "$2y$10$dTW6LC8r4CR\/h6YtqwNgGe5jMA2a4oMDQI9W2xbmkHX\/Dqdf3u7Mq"
     }
 ]

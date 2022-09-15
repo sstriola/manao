@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<div class="container">
+<div class="form-container">
 <form class="" action="" method="post" enctype="multipart/form-data" autocomplete="off">
 	<label>Name</label>
 	<input type="Text" name="username" placeholder="Enter your Name">
@@ -23,10 +25,14 @@
   <input type="password" name="password" placeholder="Enter your password">
   <label>Confirm Password</label>
   <input type="password" name="confirm_password" placeholder="Confirm your password">
+</form>
+<div class="form-btn">
   <button type="submit" name="submit">Register</button>
+</div>
 	<p>Already have an account? <a href="index.php">Log In</a></p>
     <p class="error"><?php echo @$user->error ?></p>
     <p class="success"><?php echo @$user->success ?></p>
-</form>
+</div>
+</div>
 </body>
 </html>

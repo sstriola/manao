@@ -6,7 +6,6 @@ class RegisterUser{
 	private $password;
 	private $confirm_password;
 	private $encrypted_password;
-	private $encrypted_confirm_password;
 	public $error;
 	public $success;
 	private $storage = "users.json";
@@ -59,7 +58,7 @@ class RegisterUser{
 	}
 	
 	private function comparePassword(){
-		if($this->encrypted_password != $this->encrypted_confirm_password) {
+		if($this->password != $this->confirm_password) {
 			$this->error = "Password And Confirm Password Are Not The Same!";
 			return false;
 			
@@ -69,7 +68,7 @@ class RegisterUser{
 	}
 	
 	private function insertUser(){
-		if($this->loginExists() == false || $this->comparePassword()== true){
+		if($this->loginExists() == false && $this->comparePassword()== true){
 			array_push($this->stored_users,$this->new_user);
 			if(file_put_contents($this->storage, json_encode($this->stored_users, JSON_PRETTY_PRINT))){
 				return $this->success = "You Was Successfully Registered";}
