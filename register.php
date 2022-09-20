@@ -1,4 +1,4 @@
-<?php require("users.php") ?>
+<?php require("register-class.php") ?>
 <?php
   if(isset($_POST['submit'])){
     $user = new RegisterUser($_POST['username'],$_POST['email'],$_POST['login'],$_POST['password'],$_POST['confirm_password']);
@@ -13,26 +13,37 @@
 </head>
 <body>
 <div class="container">
-<div class="form-container">
-<form class="" action="" method="post" enctype="multipart/form-data" autocomplete="off">
-	<label>Name</label>
-	<input type="Text" name="username" placeholder="Enter your Name">
-  <label>Email</label>
-  <input type="Email" name="email" placeholder="Enter your Email">
-  <label>Login</label>
-  <input type="Text" name="login" placeholder="Enter your Login">
-  <label>Password</label>
-  <input type="password" name="password" placeholder="Enter your password">
-  <label>Confirm Password</label>
-  <input type="password" name="confirm_password" placeholder="Confirm your password">
-</form>
-<div class="form-btn">
-  <button type="submit" name="submit">Register</button>
+  <form class="" action="" method="post" enctype="multipart/form-data" autocomplete="off">
+    <div class="input-group">
+	    <label>Name</label>
+	    <input type="Text" name="username" placeholder="Enter your Name" id="contact-name" onkeyup="validateName()">
+      <span id="name-error"></span>
+    </div>
+    <div class="input-group">
+      <label>Email</label>
+      <input type="Email" name="email" placeholder="Enter your Email">
+      <span id="email-error"></span>
+    </div>
+    <div class="input-group">
+      <label>Login</label>
+      <input type="Text" name="login" placeholder="Enter your Login" id="contact-login" onkeyup="validateLogin()">
+      <span id="login-error"></span>
+    </div>
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Enter your password">
+      <span id="password-error"></span>
+    </div>
+    <div class="input-group">
+      <label>Confirm Password</label>
+      <input type="password" name="confirm_password" placeholder="Confirm your password">
+      <span id="confirm-password-error"></span>
+    </div>
+      <button type="submit" name="submit">Register</button>
+      <span id="submit-error">Enter data correctly!</span>
+	    <p>Already have an account? <a href="index.php">Log In</a></p>
+  </form>
 </div>
-	<p>Already have an account? <a href="index.php">Log In</a></p>
-    <p class="error"><?php echo @$user->error ?></p>
-    <p class="success"><?php echo @$user->success ?></p>
-</div>
-</div>
+<script src="JS"></script>
 </body>
 </html>

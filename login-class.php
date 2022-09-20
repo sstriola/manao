@@ -1,7 +1,7 @@
 <?php
 	class loginUser{
-		private $login;
-		private $password;
+		public $login;
+		public $password;
 		public $error;
 		public $success;
 		private $storage = "users.json";
@@ -12,17 +12,17 @@
 			$this->login = $login;
 			$this->password = $password;
 			$this->stored_users = json_decode(file_get_contents($this->storage),true);
-			$this->login();
+			$this->loginCabinet();
 		}
 		
-		private function login()
+		private function loginCabinet()
 		{
 			foreach ($this->stored_users as $user){
 				if ($user['login'] == $this->login){
 					if (password_verify($this->password, $user['password'])){
 						session_start();
 						$_SESSION['user'] = $this->login;
-						header("location:cabinet.php");
+						header("Location: cabinet.php");
 						exit();
 					}
 				}

@@ -1,9 +1,10 @@
-<?php require("login.php")?>
+<?php require("login-class.php") ?>
 <?php
     if (isset($_POST['submit'])){
         $user = new loginUser($_POST['login'],$_POST['password']);
     }
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,18 +14,18 @@
 </head>
 <body>
 <div class="container">
-<div class="form-container">
-  <form action="" method="post">
-    <label>Login</label>
-    <input type="Text" placeholder="Enter your login">
-    <label>Password</label>
-    <input type="Text" placeholder="Enter your password">
-  </form>
-    <div class="form-btn">
-  <button>Visit</button>
+  <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+    <div class="input-group">
+      <label>Login</label>
+      <input type="Text" placeholder="Enter your login">
     </div>
+    <div class="input-group">
+      <label>Password</label>
+      <input type="Password" placeholder="Enter your password">
+    </div>
+    <button type="submit" name="submit">Visit</button>
   <p>You dont have an account? <a href="register.php">Register Now!</a></p>
-</div>
+  </form>
 </div>
 </body>
 </html>

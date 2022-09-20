@@ -23,14 +23,14 @@ class RegisterUser{
 		$this->encrypted_password = password_hash($this->password, PASSWORD_DEFAULT);
 	$this->confirm_password= trim($this->confirm_password);
 		$this->confirm_password = filter_var(trim($confirm_password), FILTER_SANITIZE_STRING);
-		$this->encrypted_confirm_password = password_hash($this->confirm_password, PASSWORD_DEFAULT);
+		$this->encrypted_password = password_hash($this->confirm_password, PASSWORD_DEFAULT);
 		$this->stored_users = json_decode(file_get_contents($this->storage), true);
 	$this->new_user=[
 		"username" => $this->username,
 		"email" => $this->email,
 		"login" => $this->login,
 		"password" => $this->encrypted_password,
-		"confirm_password" => $this->encrypted_confirm_password,
+		"confirm_password" => $this->encrypted_password,
 	];
 	
 	if($this->checkFieldValues()){
@@ -38,14 +38,6 @@ class RegisterUser{
 	}
 	}
 	
-	private function checkFieldValues(){
-		if(empty($this->username) || empty($this->email) || empty($this->login) || empty($this->password) || empty($this->confirm_password)){
-			$this->error = "All Fields Must Be Filled!";
-			return false;
-		}else{
-			return true;
-		}
-	}
 	
 	private function loginExists(){
 		foreach($this->stored_users as $user){
@@ -77,4 +69,6 @@ class RegisterUser{
 			}
 		}
 	}
+	
+	
 }
